@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: ns-icwebapp
+  creationTimestamp: null
+  labels:
+    app: deploy-odoo
+    env: prod
+  name: deploy-odoo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: deploy-odoo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-odoo
+    spec:
+      containers:
+      - image: odoo:13.0
+        name: odoo
+        env:
+        - name: HOST
+          value: svc-clusterip-bdd
+        - name:  USER
+          value: odoo
+        - name: PASSWORD
+          value: odoo
+        ports:
+        - containerPort: 8069
+        volumeMounts:
+        - name: odoo-volume
+          mountPath: /var/lib/odoo
+
+      volumes:
+      - name: odoo-volume
+        hostPath: /data/odoo-data
+status: {}

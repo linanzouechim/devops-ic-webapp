@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  namespace: ic-webapp
+  labels:
+    app: deploy-bdd
+    env: prod
+  name: deploy-bdd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-bdd
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-bdd
+    spec:
+      containers:
+      - image: postgres
+        name: postgres
+        env:
+        - name: POSTGRES_USER
+          value: odoo
+        - name: POSTGRES_PASSWORD
+          value: odoo
+        - name: POSTGRES_DB
+          value: postgres
+        ports:
+        - containerPort: 8069
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: bdd-volume
+        
+
+      volumes:
+      - name: bdd-volume
+        hostPath:
+          path: /data/bdd
+
+status: {}

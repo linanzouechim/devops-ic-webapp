@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-pgadmin
+  name: deploy-pgadmin
+  namespace: ns-icwebapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-pgadmin
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-pgadmin
+    spec:
+      containers:
+      - image: dpage/pgadmin4
+        name: pgadmin4
+        env:
+        - name: PGADMIN_DEFAULT_EMAIL
+          value: linanzouechim@gmail.com
+        - name: PGADMIN_DEFAULT_PASSWORD
+          value: mypass
+        volumeMounts:
+        - name: server
+          mountPath: /pgadmin4/servers.json
+        - name: pgadmin-volume
+          mountPath: /var/lib/pgadmin
+        ports:
+        - containerPort: 80
+
+      volumes:
+      - name: server
+        hostPath: 
+          path: /pgadmin4/servers.json
+
+      - name: pgadmin-volume
+        hostPath:
+          path: /data/pgadmin-volume    
+          type: DirectoryOrCreate
+status: {}

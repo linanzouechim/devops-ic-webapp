@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-ic-webapp
+    env: prod
+  name: deploy-ic-webapp
+  namespace: ic-webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-ic-webapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-ic-webapp
+    spec:
+      containers:
+      - image: ic-webapp:1.0
+        name: ic-webapp
+        env:
+        - name: ODOO_URL
+          value: 192.168.56.10:30009
+        - name: PGADMIN_URL
+          value: 192.168.56.10:30007
+        resources: {}
+status: {}
