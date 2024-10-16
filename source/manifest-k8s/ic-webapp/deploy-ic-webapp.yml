@@ -20,12 +20,15 @@ spec:
         app: deploy-ic-webapp
     spec:
       containers:
-      - image: ic-webapp:1.0
+      - image: linanzouechim/ic-webapp:1.0
         name: ic-webapp
         env:
         - name: ODOO_URL
-          value: 192.168.56.10:30009
+          value: http://192.32.180.3:30009
         - name: PGADMIN_URL
-          value: 192.168.56.10:30007
-        resources: {}
+          value: http://192.32.180.3:30007
+        ports:
+        - containerPort: 8080
+      
+
 status: {}

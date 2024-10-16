@@ -6,7 +6,7 @@ metadata:
     app: deploy-bdd
     env: prod
   name: svc-clusterip-bdd
-  namespace: ns-icwebapp
+  namespace: ic-webapp
 spec:
   ports:
   - port: 8069

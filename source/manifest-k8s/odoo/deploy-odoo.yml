@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: ns-icwebapp
+  namespace: ic-webapp
   creationTimestamp: null
   labels:
     app: deploy-odoo
@@ -37,5 +37,6 @@ spec:
 
       volumes:
       - name: odoo-volume
-        hostPath: /data/odoo-data
+        hostPath: 
+          path: /data/odoo-data
 status: {}
