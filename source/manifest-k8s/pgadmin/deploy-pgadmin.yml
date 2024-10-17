@@ -5,7 +5,7 @@ metadata:
   labels:
     app: deploy-pgadmin
   name: deploy-pgadmin
-  namespace: ns-icwebapp
+  namespace: ic-webapp
 spec:
   replicas: 1
   selector:
@@ -37,7 +37,7 @@ spec:
       volumes:
       - name: server
         hostPath: 
-          path: /pgadmin4/servers.json
+          path: /root/devops-ic-webapp/source/manifest-k8s/pgadmin4/servers.json
 
       - name: pgadmin-volume
         hostPath:
