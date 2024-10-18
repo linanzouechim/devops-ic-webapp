@@ -1,10 +1,10 @@
 resources:
   - ./ic-webapp/ns-ic-webapp.yml
-    ./postgres/deploy-bdd.yml
-    ./postgres/svc-clusterip-bdd.yml
-    ./pgadmin/deploy-pgadmin.yml
-    ./pgadmin/svc-nodeport-pgadmin.yml
-    ./odoo/deploy-odoo.yml
-    ./odoo/svc-nodePort-odoo.yml
-    ./ic-webapp/deploy-ic-webapp.yml
-    ./ic-webapp/svc-nodeport-icwebapp.yml
+  - ./postgres/deploy-bdd.yml
+  - ./postgres/svc-clusterip-bdd.yml
+  - ./pgadmin/deploy-pgadmin.yml
+  - ./pgadmin/svc-nodeport-pgadmin.yml
+  - ./odoo/deploy-odoo.yml
+  - ./odoo/svc-nodePort-odoo.yml
+  - ./ic-webapp/deploy-ic-webapp.yml
+  - ./ic-webapp/svc-nodeport-icwebapp.yml

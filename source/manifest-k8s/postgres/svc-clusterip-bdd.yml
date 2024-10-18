@@ -11,10 +11,10 @@ spec:
   ports:
   - port: 8069
     protocol: TCP
-    targetPort: 8069
+    targetPort: 5432
     
 
   selector:
-    app: deploy-odoo
+    app: deploy-bdd
 status:
   loadBalancer: {}

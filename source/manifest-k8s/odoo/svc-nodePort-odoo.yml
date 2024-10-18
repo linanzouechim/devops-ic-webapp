@@ -5,7 +5,7 @@ metadata:
   labels:
     app: deploy-odoo
     env: prod
-  name: svc-odoo
+  name: svc-nodeport-odoo
   namespace: ic-webapp
 spec:
   type: NodePort

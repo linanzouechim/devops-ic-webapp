@@ -28,9 +28,9 @@ spec:
         - name: POSTGRES_PASSWORD
           value: odoo
         - name: POSTGRES_DB
-          value: postgres
+          value: bdd-odoo
         ports:
-        - containerPort: 8069
+        - containerPort: 5432
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: bdd-volume
@@ -40,5 +40,6 @@ spec:
       - name: bdd-volume
         hostPath:
           path: /data/bdd
+          type: DirectoryOrCreate
 
 status: {}
