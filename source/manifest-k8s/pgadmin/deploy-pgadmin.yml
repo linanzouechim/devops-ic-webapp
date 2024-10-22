@@ -32,7 +32,7 @@ spec:
         - name: pgadmin-volume
           mountPath: /var/lib/pgadmin
         ports:
-        - containerPort: 80
+        - containerPort: 5050
 
       volumes:
       - name: server
