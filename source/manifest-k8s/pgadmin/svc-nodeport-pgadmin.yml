@@ -11,7 +11,7 @@ spec:
   ports:
   - port: 5050
     protocol: TCP
-    targetPort: 5050
+    targetPort: 80
     nodePort: 30007
 
   selector:

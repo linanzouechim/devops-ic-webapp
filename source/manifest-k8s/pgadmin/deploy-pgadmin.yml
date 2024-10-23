@@ -26,13 +26,16 @@ spec:
           value: linanzouechim@gmail.com
         - name: PGADMIN_DEFAULT_PASSWORD
           value: mypass
+        securityContext:
+          runAsUser: 0
+          runAsGroup: 0
         volumeMounts:
         - name: server
           mountPath: /pgadmin4/servers.json
         - name: pgadmin-volume
           mountPath: /var/lib/pgadmin
         ports:
-        - containerPort: 5050
+        - containerPort: 80
 
       volumes:
       - name: server
